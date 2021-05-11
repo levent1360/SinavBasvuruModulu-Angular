@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div class="alert alert-success mat-elevation-z8" role="alert">
+        <h4 class="alert-heading">BAŞVURUSU DEVAM EDEN SINAVLAR</h4>
+        <p>Aşağıda başvurusu devam eden sınavlar listelenmektedir. "BAŞVUR" butonuna tıklayarak sınava başvuru yapabilirsiniz.</p>
+        <br>
+        <p>Başvuru yapılan sınavlar, "Başvurularım" menüsü altındadır.</p>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <table class="table o-home  mat-elevation-z8">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Sınav Adı</th>
+                <th scope="col">Sınav Tarihi</th>
+                <th scope="col">Başvuru Başlangıç</th>
+                <th scope="col">Başvuru Bitiş</th>
+                <th scope="col">Detay</th>
+                <th scope="col">Başvur</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let sinav of sinavliste,let i=index">
+                <th>{{i+1}}</th>
+                <td>{{sinav.SinavAd}}</td>
+                <td>{{sinav.SinavZamani |date :"dd/MM/yyyy HH:mm"}}</td>
+                <td>{{sinav.SinavBasvuruBaslama |date :"dd/MM/yyyy HH:mm"}}</td>
+                <td>{{sinav.SinavBasvuruBitis |date :"dd/MM/yyyy HH:mm"}}</td>
+                <td><button [routerLink]="['../sinavdetay',sinav.SinavId]" mat-icon-button color="primary" matTooltipClass="tooltip-edit" matTooltip="Sınav Detayı">
+                    <mat-icon>view_list</mat-icon>
+                  </button></td>
+                <td>
+                    <button type="button" class="btn btn-success">BAŞVUR</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,84 @@
+<mat-toolbar class="admin-toolbar mat-elevation-z8">
+    <span>Sınav Detay Sayfası</span>
+</mat-toolbar>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <button mat-raised-button [routerLink]="['../../sinavislemleri']">
+            <mat-icon>arrow_back_ios</mat-icon> Sınav Listesine Dön</button>
+        </div>
+    </div>
+
+    <div class="row mt-3 mat-elevation-z8" style="background-color: white;">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;"></th>
+                        <th style="width: 1%;"></th>
+                        <th style="width: 79%;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Sınav Adı</th>
+                        <td>:</td>
+                        <td>{{seciliSinav?.SinavAd}}</td>
+                    </tr>
+                    <tr>
+                        <th>Sınav Zamanı</th>
+                        <td>:</td>
+                        <td>{{seciliSinav?.SinavZamani | date:"dd.MM.yyyy HH.mm"}}</td>
+                    </tr>
+                    <tr>
+                        <th>Sınav Dönemi</th>
+                        <td>:</td>
+                        <td>{{seciliSinav?.SinavDonem}}</td>
+                    </tr>
+                    <tr>
+                        <th>Sınav Türü</th>
+                        <td>:</td>
+                        <td>{{seciliSinav?.SinavTuru}}</td>
+                    </tr>
+                    <tr>
+                        <th>Sınav Dili</th>
+                        <td>:</td>
+                        <td>{{seciliSinav?.SinavDili}}</td>
+                    </tr>
+                    <tr>
+                        <th>Sınav Başvuru Başlama</th>
+                        <td>:</td>
+                        <td>{{seciliSinav?.SinavBasvuruBaslama | date:"dd.MM.yyyy HH.mm"}}</td>
+                    </tr>
+                    <tr>
+                        <th>Sınav Başvuru Bitiş</th>
+                        <td>:</td>
+                        <td>{{seciliSinav?.SinavBasvuruBitis | date:"dd.MM.yyyy HH.mm"}}</td>
+                    </tr>
+                    <tr>
+                        <th>Sınav Tamamlandı</th>
+                        <td>:</td>
+                        <td *ngIf="seciliSinav?.SinavTamam==1">Tamamlandı</td>
+                        <td *ngIf="seciliSinav?.SinavTamam==0">Tamamlanmadı</td>
+                    </tr>
+                    <tr>
+                        <th>Sınav İptal</th>
+                        <td>:</td>
+                        <td *ngIf="seciliSinav?.SinavIptal==1">İptal oldu</td>
+                        <td *ngIf="seciliSinav?.SinavIptal==0">İptal değil</td>
+                    </tr>
+                    <tr>
+                        <th>Sınav Açıklama</th>
+                        <td>:</td>
+                        <td>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3" disabled>{{seciliSinav?.SinavAciklama}}</textarea>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
